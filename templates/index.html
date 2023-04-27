@@ -1,0 +1,387 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    homepage
+{% endblock %}
+
+{% block content %}
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="row justify-content-start">
+                <div class="col-lg-8 text-center text-lg-start">
+                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5"
+                        style="border-color: rgba(256, 256, 256, .3) !important;">Welcome To Medinova</h5>
+                    <h1 class="display-1 text-white mb-md-4">Best Healthcare Solution In Your City</h1>
+                    <div class="pt-2">
+                        <a href="#find-doctors" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Find Doctor</a>
+                        <a href="#appointment-block" class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded" src="{% static 'img/about.jpg' %}"
+                             style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="mb-4">
+                        <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">About Us</h5>
+                        <h1 class="display-4">Best Medical Care For Yourself and Your Family</h1>
+                    </div>
+                    <p>Works of the U.S. government are in the public domain, and permission is not required to use
+                        them. An attribution to the Centers for Medicare and Medicaid Services as the source is
+                        appreciated. However, the data here, including star ratings, should not be construed as an
+                        endorsement by the U.S. Department of Health and Human Services of any health care provider's
+                        products or services. Conveying a false impression of government approval, endorsement or
+                        authorization of products or services is forbidden. See 42 U.S.C.1320b-10.
+
+                        The star ratings and all data on this tool are provided as a service to the public, and are not
+                        intended to grant rights or impose obligations. Star ratings are limited in scope to the data
+                        sources they are derived from. A provider's star rating on an individual measure or domain may
+                        not be reflective of that provider's overall star rating.</p>
+                    <div class="row g-3 pt-3">
+                        <div class="col-sm-3 col-6">
+                            <div class="bg-light text-center rounded-circle py-4">
+                                <i class="fa fa-3x fa-user-md text-primary mb-3"></i>
+                                <h6 class="mb-0">Qualified<small class="d-block text-primary">Doctors</small></h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-6">
+                            <div class="bg-light text-center rounded-circle py-4">
+                                <i class="fa fa-3x fa-procedures text-primary mb-3"></i>
+                                <h6 class="mb-0">Emergency<small class="d-block text-primary">Services</small></h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-6">
+                            <div class="bg-light text-center rounded-circle py-4">
+                                <i class="fa fa-3x fa-microscope text-primary mb-3"></i>
+                                <h6 class="mb-0">Accurate<small class="d-block text-primary">Testing</small></h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-6">
+                            <div class="bg-light text-center rounded-circle py-4">
+                                <i class="fa fa-3x fa-ambulance text-primary mb-3"></i>
+                                <h6 class="mb-0">Free<small class="d-block text-primary">Ambulance</small></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Services</h5>
+                <h1 class="display-4">Excellent Medical Services</h1>
+            </div>
+            <div class="row g-5">
+                {% for service in services %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                            <div class="service-icon mb-4">
+                                <i class="{{ service.icon }}"></i>
+                            </div>
+                            <h4 class="mb-3">{{ service.title }}</h4>
+                            <p class="m-0">{{ service.description|slice:80 }}</p>
+                            <a class="btn btn-lg btn-primary rounded-pill" href="">
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Appointment Start -->
+    <div class="container-fluid bg-primary my-5 py-5" id="appointment-block">
+        <div class="container py-5">
+            <div class="row gx-5">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="mb-4">
+                        <h5 class="d-inline-block text-white text-uppercase border-bottom border-5">Appointment</h5>
+                        <h1 class="display-4">Make An Appointment For Your Family</h1>
+                    </div>
+                    <p class="text-white mb-5">Information on this site isn't an endorsement or advertisement for any
+                        provider type. If information for a provider or facility isn't provided here, it doesn't mean
+                        they provide low quality of care or are non-compliant with the Medicare program. It may mean
+                        that CMS doesn't have data for that specific provider or provider type.</p>
+                    <a class="btn btn-dark rounded-pill py-3 px-5 me-3" href="#find-doctors">Find Doctor</a>
+                    <a class="btn btn-outline-dark rounded-pill py-3 px-5" href="">Read More</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-white text-center rounded p-5">
+                        <h1 class="mb-4">Book An Appointment</h1>
+                        <form action="{% url 'appointment' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <select name="department"
+                                            class="form-select bg-light border-0"
+                                            required
+                                            style="height: 55px;"
+                                    >
+                                        <option value="">Choose Department</option>
+                                        {% for department in departments %}
+                                            <option value="{{ department.id }}">{{ department.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <select name="doctor"
+                                            class="form-select bg-light border-0"
+                                            required
+                                            style="height: 55px;"
+                                    >
+                                        <option value="">Select Doctor</option>
+                                        {% for doctor in doctors %}
+                                            <option value="{{ doctor.id }}">{{ doctor.first_name }} {{ doctor.last_name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text"
+                                           name="name"
+                                           class="form-control bg-light border-0"
+                                           required
+                                           placeholder="Your Name"
+                                           style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email"
+                                           name="email"
+                                           class="form-control bg-light border-0"
+                                           required
+                                           placeholder="Your Email"
+                                           style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date" data-target-input="nearest">
+                                        <input type="text"
+                                               name="appointment_time"
+                                               required
+                                               class="form-control bg-light border-0 datetimepicker-input"
+                                               placeholder="Date" data-target="#date" data-toggle="datetimepicker"
+                                               style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="time" id="time" data-target-input="nearest">
+                                        <input type="text"
+                                               name=""
+                                               class="form-control bg-light border-0 datetimepicker-input"
+                                               placeholder="Time" data-target="#time" data-toggle="datetimepicker"
+                                               style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100 py-3">
+                                        Make An Appointment
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Appointment End -->
+
+
+    <!-- Pricing Plan Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Medical Packages</h5>
+                <h1 class="display-4">Awesome Medical Programs</h1>
+            </div>
+            <div class="owl-carousel price-carousel position-relative" style="padding: 0 45px 45px 45px;">
+                {% for price in prices %}
+                    <div class="bg-light rounded text-center">
+                        <div class="position-relative">
+                            <img class="img-fluid rounded-top" src=" {{ price.photo.url }}" alt="">
+                            <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center"
+                                 style="background: rgba(29, 42, 77, .8);">
+                                <h3 class="text-white">{{ price.title |slice:20 }}</h3>
+                                <h1 class="display-4 text-white mb-0">
+                                    <small class="align-top fw-normal"
+                                           style="font-size: 22px; line-height: 45px;">$</small>{{ price.annual_price }}<small
+                                        class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/
+                                    Year</small>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="text-center py-5">
+
+                            <p>{{ price.description  | slice:80 }}</p>
+
+                            <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Pricing Plan End -->
+
+
+    <!-- Team Start -->
+    <div class="container-fluid py-5" id="find-doctors">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Our Doctors</h5>
+                <h1 class="display-4">Qualified Healthcare Professionals</h1>
+            </div>
+            <div class="owl-carousel team-carousel position-relative">
+                {% for doctor in doctors %}
+                    <div class="team-item">
+                        <div class="row g-0 bg-light rounded overflow-hidden">
+                            <div class="col-12 col-sm-5 h-100">
+                                <img class="img-fluid h-100" src="{{ doctor.photo.url }}"
+                                     style="object-fit: cover;">
+                            </div>
+                            <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+                                <div class="mt-auto p-4">
+                                    <h3>{{ doctor.first_name }} {{ doctor.last_name }}</h3>
+                                    <h6 class="fw-normal fst-italic text-primary mb-4">{{ doctor.speciality.title }}</h6>
+                                    <p class="m-0">{{ doctor.about|slice:100 }}</p>
+                                </div>
+                                <div class="d-flex mt-auto border-top p-4">
+                                    {% for contact in doctor.doctorContacts.all %}
+                                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3"
+                                           href="{{ contact.url }}">
+                                            <i class="{{ contact.icon }}"></i>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Search Start -->
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Find A Doctor</h5>
+                <h1 class="display-4 mb-4">Find A Healthcare Professionals</h1>
+                <h5 class="fw-normal">Duo ipsum erat stet dolor sea ut nonumy tempor. Tempor duo lorem eos sit sed ipsum
+                    takimata ipsum sit est. Ipsum ea voluptua ipsum sit justo</h5>
+            </div>
+            <div class="mx-auto" style="width: 100%; max-width: 600px;">
+                <form action="{% url 'search' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" class="form-control border-primary w-50" placeholder="Keyword">
+                        <a href="{% url 'search' %}" class="btn btn-dark border-0 w-25">
+                            <span class="h-100 d-flex align-items-center justify-content-center">Search</span>
+                        </a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Search End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h5>
+                <h1 class="display-4">Patients Say About Our Services</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="owl-carousel testimonial-carousel">
+                        {% for feedback in feedbacks %}
+                            <div class="testimonial-item text-center">
+                                <div class="position-relative mb-5">
+                                    <img class="img-fluid rounded-circle mx-auto" src="{{ feedback.photo.url }}"
+                                         alt="">
+                                    <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle"
+                                         style="width: 60px; height: 60px;">
+                                        <i class="fa fa-quote-left fa-2x text-primary"></i>
+                                    </div>
+                                </div>
+                                <p class="fs-4 fw-normal">{{ feedback.content }}</p>
+                                <hr class="w-25 mx-auto">
+                                <h3>{{ feedback.author }}</h3>
+                                <h6 class="fw-normal text-primary mb-3">{{ feedback.profession }}</h6>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Blog Post</h5>
+                <h1 class="display-4">Our Latest Medical Blog Posts</h1>
+            </div>
+            <div class="row g-5">
+                {% for blog in blogs %}
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="bg-light rounded overflow-hidden">
+                            <img class="w-100" height="250" src="{{ blog.image.url }}" alt="">
+                            <div class="p-4">
+                                <a class="h3 d-block mb-3" href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
+                                <p class="m-0">{{ blog.content|slice:200 }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between border-top p-4">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-2" src="{% static 'img/user.jpg' %}" width="25"
+                                         height="25" alt="">
+                                    <small>{{ blog.user.first_name }}</small>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>{{ blog.viewers }}
+                                    </small>
+                                    <small class="ms-3"><i
+                                            class="far fa-comment text-primary me-1"></i>{{ blog.comments.all.count }}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+{% endblock %}

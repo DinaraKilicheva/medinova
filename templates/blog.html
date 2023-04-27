@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Blog Post</h5>
+                <h1 class="display-4">Our Latest Medical Blog Posts</h1>
+            </div>
+            <div class="row g-5">
+
+                {% for blog in blogs %}
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="bg-light rounded overflow-hidden">
+                            <img class="w-100" height="200" src="{{ blog.image.url }}" alt="">
+                            <div class="p-4">
+                                <a class="h3 d-block mb-3" href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
+                                <p class="m-0">{{ blog.content |slice:200 }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between border-top p-4">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle me-2" src="{% static 'img/user.jpg' %}" width="25"
+                                         height="25" alt="">
+                                    <small>{{ blog.user.first_name }}</small>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <small class="ms-3"><i class="far fa-eye text-primary me-1"></i>{{ blog.viewers }}
+                                    </small>
+                                    <small class="ms-3"><i
+                                            class="far fa-comment text-primary me-1"></i>{{ blog.comments.all.count }}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary py-3 px-5">Load More</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Blog End -->
+
+{% endblock %}
